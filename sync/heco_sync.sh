@@ -14,7 +14,7 @@ source config.shlib
 
 # load configuration
 service="$(config_get SERVICE)"
-local_host="$(config_get HOST)"
+local_host="$(config_get LOCAL_HOST)"
 remote_host_first="$(config_get REMOTE_HOST_FIRST)"
 remote_host_second="$(config_get REMOTE_HOST_SECOND)"
 abs_num="$(config_get ABS_NUM)"
