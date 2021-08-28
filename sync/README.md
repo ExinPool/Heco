@@ -54,8 +54,8 @@ ACCESS_TOKEN=YOUR_ACCESS_TOKEN
 Add crontab like this in the server.
 
 ``` bash
-# Mixin node sync monitor
-* * * * * cd /data/monitor/exinpool/Mixin/sync && bash heco_sync.sh >> heco_sync.log &
+# Heco node sync monitor
+* * * * * cd /data/monitor/exinpool/Heco/sync && bash heco_sync.sh >> heco_sync.log &
 ```
 
 The crontab will run every minute then you can check the log in the `heco_sync.log`.
