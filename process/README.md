@@ -46,8 +46,6 @@ PROCESS_NUM=1
 LOG_FILE=heco_process.log
 WEBHOOK_URL=https://webhook.exinwork.com/api/send?access_token
 ACCESS_TOKEN=YOUR_ACCESS_TOKEN
-NODE_HOST=
-NODE_ACCESS_TOKEN=
 ```
 
 Add crontab like this in the server.
