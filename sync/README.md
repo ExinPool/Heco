@@ -1,6 +1,6 @@
-# Mixin Node Sync Monitor
+# Heco Node Sync Monitor
 
-> Mixin node topology sync monitor tools.
+> Heco node blocks sync monitor tools.
 
 [![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger) [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
