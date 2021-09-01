@@ -37,5 +37,5 @@ else
         log="`date '+%Y-%m-%d %H:%M:%S'` UTC `hostname` `whoami` INFO send mixin failed."
         echo $log >> $log_file
     fi
-    cd /data/heco && bash run.sh
+    cd /data/heco && bash start.sh
 fi
