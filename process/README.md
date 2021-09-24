@@ -46,6 +46,7 @@ PROCESS_NUM=1
 LOG_FILE=heco_process.log
 WEBHOOK_URL=https://webhook.exinwork.com/api/send?access_token
 ACCESS_TOKEN=YOUR_ACCESS_TOKEN
+LARK_WEBHOOK_URL=https://open.larksuite.com/open-apis/bot/v2/hook/
 ```
 
 Add crontab like this in the server.
@@ -53,6 +54,9 @@ Add crontab like this in the server.
 ``` bash
 # Heco node process monitor
 * * * * * cd /data/monitor/exinpool/Heco/process && bash heco_process.sh >> heco_process.log &
+
+# You can also send message to Lark.
+* * * * * cd /data/monitor/exinpool/Heco/process && bash heco_process_lark.sh >> heco_process.log &
 ```
 
 The crontab will run every minute then you can check the log in the `heco_process.log`.
@@ -61,7 +65,8 @@ The crontab will run every minute then you can check the log in the `heco_proces
 
 - Monitor Heco node process
 - Send alarm message when node is abnormal
-- Send alarm message via Webhook which based on Mixin API
+- Send alarm message to Mixin Messenger via Webhook which based on Mixin API
+- Send alarm message to Lark which based on Lark webhook API
 
 ## Contributing
 

@@ -49,6 +49,7 @@ ABS_NUM=100
 LOG_FILE=heco_sync.log
 WEBHOOK_URL=https://webhook.exinwork.com/api/send?access_token
 ACCESS_TOKEN=YOUR_ACCESS_TOKEN
+LARK_WEBHOOK_URL=https://open.larksuite.com/open-apis/bot/v2/hook/
 ```
 
 Add crontab like this in the server.
@@ -56,6 +57,9 @@ Add crontab like this in the server.
 ``` bash
 # Heco node sync monitor
 * * * * * cd /data/monitor/exinpool/Heco/sync && bash heco_sync.sh >> heco_sync.log &
+
+# You can also send message to Lark.
+* * * * * cd /data/monitor/exinpool/Heco/sync && bash heco_sync_lark.sh >> heco_sync.log &
 ```
 
 The crontab will run every minute then you can check the log in the `heco_sync.log`.
@@ -64,7 +68,8 @@ The crontab will run every minute then you can check the log in the `heco_sync.l
 
 - Monitor Heco node blocks sync
 - Send alarm message when node blocks sync is abnormal
-- Send alarm message via Webhook which based on Mixin API
+- Send alarm message to Mixin Messenger via Webhook which based on Mixin API
+- Send alarm message to Lark which based on Lark webhook API
 
 ## Contributing
 
