@@ -23,10 +23,10 @@ log_file="$(config_get LOG_FILE)"
 lark_webhook_url="$(config_get LARK_WEBHOOK_URL)"
 
 local_blocks_first_hex=`curl -X POST ${local_host} -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"eth_blockNumber", "params":[], "id":83}' | jq | grep result | sed "s/\"//g" | awk -F':' '{print $2}' | sed "s/ //g" | sed "s/0x//g"`
-local_blocks_first=`echo $((16#${local_blocks_hex}))`
+local_blocks_first=`echo $((16#${local_blocks_first_hex}))`
 sleep ${sleep_number}
 local_blocks_second_hex=`curl -X POST ${local_host} -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"eth_blockNumber", "params":[], "id":83}' | jq | grep result | sed "s/\"//g" | awk -F':' '{print $2}' | sed "s/ //g" | sed "s/0x//g"`
-local_blocks_second=`echo $((16#${local_blocks_hex}))`
+local_blocks_second=`echo $((16#${local_blocks_second_hex}))`
 log="`date '+%Y-%m-%d %H:%M:%S'` UTC `hostname` `whoami` INFO local_blocks: ${local_blocks}, remote_first_blocks: ${remote_first_blocks}, remote_second_blocks: ${remote_second_blocks}"
 echo $log >> $log_file
 
