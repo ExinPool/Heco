@@ -53,7 +53,7 @@ LARK_WEBHOOK_URL=https://open.larksuite.com/open-apis/bot/v2/hook/
 Add crontab like this in the server.
 
 ``` bash
-# Heco node sync monitor
+# Heco node blocks monitor
 * * * * * cd /data/monitor/exinpool/Heco/blocks && bash heco_blocks.sh >> heco_blocks.log &
 
 # You can also send message to Lark.

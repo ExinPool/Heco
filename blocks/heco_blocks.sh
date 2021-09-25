@@ -16,6 +16,9 @@ source config.shlib
 service="$(config_get SERVICE)"
 local_host="$(config_get LOCAL_HOST)"
 sleep_number="$(config_get SLEEP_NUMBER)"
+process="$(config_get PROCESS)"
+process_num="$(config_get PROCESS_NUM)"
+process_num_var=`sudo netstat -langput | grep LISTEN | grep $process | wc -l`
 log_file="$(config_get LOG_FILE)"
 webhook_url="$(config_get WEBHOOK_URL)"
 access_token="$(config_get ACCESS_TOKEN)"
@@ -28,7 +31,7 @@ local_blocks_second=`echo $((16#${local_blocks_hex}))`
 log="`date '+%Y-%m-%d %H:%M:%S'` UTC `hostname` `whoami` INFO local_blocks: ${local_blocks}, remote_first_blocks: ${remote_first_blocks}, remote_second_blocks: ${remote_second_blocks}"
 echo $log >> $log_file
 
-if [ ${local_blocks_first} -eq ${local_blocks_second} ]
+if [ ${process_num} -eq ${process_num_var} ] && [ ${local_blocks_first} -eq ${local_blocks_second} ]
 then
     log="时间: `date '+%Y-%m-%d %H:%M:%S'` UTC \n主机名: `hostname` \n节点: ${local_host}, ${local_blocks} \n状态: 同步区块停滞，已重启节点。"
     echo -e $log >> $log_file
@@ -42,6 +45,6 @@ then
         echo $log >> $log_file
     fi
 else
-    log="`date '+%Y-%m-%d %H:%M:%S'` UTC `hostname` `whoami` INFO ${service} ${local_host} status is normal."
+    log="`date '+%Y-%m-%d %H:%M:%S'` UTC `hostname` `whoami` INFO ${service} ${local_host} blocks status is normal."
     echo $log >> $log_file
 fi
