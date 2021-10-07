@@ -54,10 +54,10 @@ Add crontab like this in the server.
 
 ``` bash
 # Heco node blocks monitor
-* * * * * cd /data/monitor/exinpool/Heco/blocks && bash heco_blocks.sh >> heco_blocks.log &
+*/5 * * * * cd /data/monitor/exinpool/Heco/blocks && bash heco_blocks.sh >> heco_blocks.log &
 
 # You can also send message to Lark.
-* * * * * cd /data/monitor/exinpool/Heco/blocks && bash heco_blocks_lark.sh >> heco_blocks.log &
+*/5 * * * * cd /data/monitor/exinpool/Heco/blocks && bash heco_blocks_lark.sh >> heco_blocks.log &
 ```
 
 The crontab will run every minute then you can check the log in the `heco_blocks.log`.
